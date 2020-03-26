@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-	<h1>This is where the messages are displayed</h1>
-	<ul>
+	<h1>Sent messages</h1>
+	<ul class="list-group">
 	{% for message in object_list %}
-	<li>{{ message.text_content }}</li>
+	<li class="list-group-item">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm"><p id="post-username">{{ message.poster }}</p></div>
+				<div class="col-sm"><p id="post-datetime">{{ message.timestamp }}</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm"><p id="post-text">{{ message.text_content }}<p></div>
+			</div>
+		</div>
+	</li>
 	{% endfor %}
 	</ul>
 {% endblock %}
