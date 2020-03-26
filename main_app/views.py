@@ -4,14 +4,13 @@ from main_app.models import Message
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
-class Index(TemplateView):
+class Index(LoginRequiredMixin, TemplateView):
+	login_url = 'Login'
 	template_name = 'index.html'
-
-class TestPage(TemplateView):
-	template_name = 'testpage.html'
 
 class Login(LoginView):
 	template_name = 'login.html'

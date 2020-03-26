@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-	<form method="post">
-		{% csrf_token %}
-		{{ form.username }}
-		{{ form.password }}
-		<input type="submit" value="Login">
-	</form>
-
+	<div class="jumbotron">
+  	<h1 class="display-4">Very welcome indeed</h1>
+  		<form method="post">
+				{% csrf_token %}
+				{{ form.username }}
+				{{ form.password }}
+				<input type="submit" value="Login">
+			</form>
+  	<hr class="my-4">
+  	<p>You may want to press the button below, or you might not</p>
+  	<a class="btn btn-primary" href="#" role="button">This is the button</a>
+	</div>
 {% endblock %}
