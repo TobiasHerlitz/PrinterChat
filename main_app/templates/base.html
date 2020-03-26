@@ -3,7 +3,10 @@
 <html>
 <head>
 	<title>Printer Chat</title>
+	<!-- OG-bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- My own css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'mycss.css' %}">
 </head>
 
 <body>
@@ -16,7 +19,7 @@
 				<li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
 			</ul>
 			{% if user.is_authenticated %}
-			<button type="button" class="btn btn-primary">Logout</button>
+				<a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
 			{% endif %}
 		</div>
 	</nav>
