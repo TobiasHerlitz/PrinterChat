@@ -4,14 +4,29 @@
 	<div class="jumbotron">
   	<h1 class="display-4">Welcome to Printer Chat</h1>
   	<hr>
-  	<div>
-  	<p>This is where the form to post a message will be</p>
-  	<button type="button" class="btn btn-primary btn-lg" href="#">Post message</button>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.text_content }}
+        </div>
+          <input class="btn btn-primary" type="submit" value="Send" name="">
+      </form>
   	<hr>
   	<h3>Latest messages:</h3>
-  	<p>Filip - <i>13:22 7/10-20</i></p>
-  	<p>"Hej jag heter Filip"</p>
-  	<p>Freja - <i>14:34 7/10-20</i></p>
-  	<p>"Hej jag något annat än Filip"</p>
+      {% for message in last_four_objects %}
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm"><p id="post-username">{{ message.poster }}</p></div>
+            <div class="col-sm"><p id="post-datetime">{{ message.timestamp }}</p></div>
+          </div>
+          <div class="row">
+            <div class="col-sm"><p id="post-text">{{ message.text_content }}<p></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+      {% endfor %}
 	</div>
 {% endblock %}

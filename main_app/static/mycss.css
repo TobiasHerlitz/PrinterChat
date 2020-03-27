@@ -1,4 +1,4 @@
-#id_username, #id_password {
+#id_username, #id_password, #id_text_content {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -24,6 +24,7 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
+  height: 0px;
 }
 
 #post-datetime{
@@ -32,6 +33,10 @@
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
   line-height: 0.5;
+}
+
+.list-group{
+  padding-top: 0.5rem;
 }
 
 @media (min-width: 576px) {
